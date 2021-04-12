@@ -12,9 +12,17 @@
  * For 00-1B-63-84-45-E6, the output should be true.
  *
  */
+
 function isMAC48Address(n) {
-  const regexp = /[G-Z]/;
-  return !regexp.test(n);
+  const regexp = /^[0-9A-F][0-9A-F]$/;
+  const arr = n.split('-');
+  // eslint-disable-next-line no-restricted-syntax
+  for (const item of arr) {
+    if (!regexp.test(item)) {
+      return false;
+    }
+  }
+  return true;
 }
 
 module.exports = isMAC48Address;

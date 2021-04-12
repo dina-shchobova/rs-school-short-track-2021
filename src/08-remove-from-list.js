@@ -4,7 +4,7 @@
  *
  * @param {List} l
  * @param {Number} k
- * @return {List}
+ * @return {[]}
  *
  * @example
  * For l = [3, 1, 2, 3, 4, 5] and k = 3,
@@ -17,8 +17,21 @@
  * }
  */
 
-function removeKFromList(/* l, k */) {
-  throw new Error('Not implemented');
+function removeKFromList(l, k) {
+  let current = l;
+  if (l.value === k) {
+    // eslint-disable-next-line no-param-reassign
+    l = l.next;
+  }
+  while (current.next !== null) {
+    if (current.next.value === k) {
+      // eslint-disable-next-line no-param-reassign
+      current.next = current.next.next;
+    }
+    // eslint-disable-next-line no-param-reassign
+    current = current.next;
+  }
+  return l;
 }
 
 module.exports = removeKFromList;
