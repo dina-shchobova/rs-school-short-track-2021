@@ -19,11 +19,11 @@
 
 function removeKFromList(l, k) {
   let current = l;
-  if (l.value === k) {
+  while (l && l.value === k) {
     // eslint-disable-next-line no-param-reassign
     l = l.next;
   }
-  while (current.next !== null) {
+  while (current && current.next !== null) {
     if (current.next.value === k) {
       // eslint-disable-next-line no-param-reassign
       current.next = current.next.next;

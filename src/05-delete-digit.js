@@ -11,13 +11,13 @@
  */
 function deleteDigit(n) {
   const arr = String(n).split('');
-  const rezult = [];
+  const result = [];
   for (let i = 0; i < arr.length; i++) {
     const arr2 = arr.map((j) => j);
     arr2.splice(i, 1);
-    rezult.push(+arr2.join(''));
+    result.push(+arr2.join(''));
   }
-  return Math.max(...rezult);
+  return Math.max(...result);
 }
 
 module.exports = deleteDigit;
