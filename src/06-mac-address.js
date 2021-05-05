@@ -14,15 +14,9 @@
  */
 
 function isMAC48Address(n) {
-  const regexp = /^[0-9A-F][0-9A-F]$/;
-  const arr = n.split('-');
+  const regexp = /^([0-9A-F]{2}-){5}[0-9A-F]{2}$/;
   // eslint-disable-next-line no-restricted-syntax
-  for (const item of arr) {
-    if (!regexp.test(item)) {
-      return false;
-    }
-  }
-  return true;
+  return regexp.test(n);
 }
 
 module.exports = isMAC48Address;
