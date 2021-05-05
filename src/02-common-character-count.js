@@ -13,22 +13,18 @@ function getCommonCharacterCount(s1, s2) {
   const arr1 = s1.split('');
   const arr2 = s2.split('');
 
-  function helper (x, y) {
-    let counter = 0;
-    for (let i = 0; i < x.length; i++) {
-      for (let j = y.length; j >= 0; j--) {
-        if (x[i] === y[j]) {
-          counter++;
-          y.splice(j, 1);
-          break;
-        }
+  let counter = 0;
+  for (let i = 0; i < arr1.length; i++) {
+    for (let j = arr2.length; j >= 0; j--) {
+      if (arr1[i] === arr2[j]) {
+        counter++;
+        arr2.splice(j, 1);
+        break;
       }
     }
-
-    return counter;
   }
 
-  return arr1.length <= arr2.length ? helper(arr1, arr2) : helper(arr2, arr1);
+  return counter;
 }
 
 module.exports = getCommonCharacterCount;
